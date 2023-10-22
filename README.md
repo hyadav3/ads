@@ -1,4 +1,4 @@
-###### Web Application for Diabetes Dataset Visualization ####
+# Web Application for Diabetes Dataset Visualization
 
 # Project Summary
 

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+
+
+{% block body %}
+<h2>Diabetes Predictor</h2>
+<p>Please insert your details below. The default values are set to the population median. </p>
+<form id="form" action="../prediction" method="POST" >
+	<div id="Age-group" class="form-group">Age: <input type="range" name="Age" id="Age" min="21" max="81" value="{{Age}}" step="1" oninput="this.form.AgeInput.value=this.value" /> <input type="number" name="AgeInput" min="21" max="81" value="{{Age}}" step="1" oninput="this.form.Age.value=this.value" /></div>
+	<div id="BloodPressure-group" class="form-group">Blood Pressure (Diastolic): <input type="range" name="BloodPressure" id="BloodPressure" min="0" max="122" value="{{BloodPressure}}" step="1" oninput="this.form.BloodPressureInput.value=this.value" /> <input type="number" name="BloodPressureInput" min="0" max="122" value="{{BloodPressure}}" step="1" oninput="this.form.BloodPressure.value=this.value" /></div>
+	<div id="BMI-group" class="form-group">Body Mass Index (BMI): <input type="range" name="BMI" id="BMI" min="0" max="67.1" value="{{BMI}}" step="1" oninput="this.form.BMIInput.value=this.value" /> <input type="number" name="BMIInput" min="0" max="67.1" value="{{BMI}}" step="1" oninput="this.form.BMI.value=this.value" /></div>
+	<div id="DiabetesPedigreeFunction-group" class="form-group">Diabetes Pedigree Function (DPF): <input type="range" name="DiabetesPedigreeFunction" id="DiabetesPedigreeFunction" min="0.078" max="2.42" value="{{DiabetesPedigreeFunction}}" step="0.001" oninput="this.form.DiabetesPedigreeFunctionInput.value=this.value" /> <input type="number" name="DiabetesPedigreeFunctionInput" min="0.078" max="2.42" value="{{DiabetesPedigreeFunction}}" step="0.001" oninput="this.form.DiabetesPedigreeFunction.value=this.value" /></div>
+	<div id="Glucose-group"  class="form-group">Blood Glucose: <input type="range" name="Glucose" id="Glucose" min="0" max="199" value="{{Glucose}}" step="1" oninput="this.form.GlucoseInput.value=this.value" /> <input type="number" name="GlucoseInput" min="0" max="199" value="{{Glucose}}" step="1" oninput="this.form.Glucose.value=this.value" /></div>
+	<div id="Insulin-group" class="form-group">Insulin: <input type="range" name="Insulin" id="Insulin" min="0" max="846" value="{{Insulin}}" step="1" oninput="this.form.InsulinInput.value=this.value" /> <input type="number" name="InsulinInput" min="0" max="846" value="{{Insulin}}" step="1" oninput="this.form.Insulin.value=this.value" /></div>
+	<div id="Pregnancies-group" class="form-group">Pregnancies: <input type="range" name="Pregnancies" id="Pregnancies" min="0" max="17" value="3" step="1" oninput="this.form.PregnanciesInput.value=this.value" /> <input type="number" name="PregnanciesInput" min="0" max="17" value="{{Pregnancies}}" step="1" oninput="this.form.Pregnancies.value=this.value" /></div>
+	<div id="SkinThickness-group" class="form-group">Skin Thickness (mm): <input type="range" name="SkinThickness" id="SkinThickness" min="0" max="65" value="{{SkinThickness}}" step="1" oninput="this.form.SkinThicknessInput.value=this.value" /> <input type="number" name="SkinThicknessInput" min="0" max="65" value="{{SkinThickness}}" step="1" oninput="this.form.SkinThickness.value=this.value" /></div>
+
+	<button type="submit" class="btn btn-success">
+		Submit
+	  </button>
+</form>
+
+
+<div id ="results">{{pred_prob}}</div>
+
+<p>Note: This website does not retain the information you submit through this form.</p>
+
+{% endblock %}

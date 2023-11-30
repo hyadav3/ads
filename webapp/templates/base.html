@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <title>Diabetes Predictor &amp; Data Visualization</title>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<!--<script src="{{ url_for('static', filename='js/form.js') }}"></script>-->
+
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}" />
+  </head>
+  <body>
+	<div class="header">
+		<div class='nav'>
+			<ul>
+			  <li><a href="/">Home</a></li>
+			  <li><a href="/descrptive">Descriptive Statistics</a></li>
+              <li><a href="/prediction">Diabetes Prediction</a></li>
+			  <li><a href="/contact">Contact</a></li>
+			</ul> 
+		</div>
+		<h1>Diabetes Predictor &amp; Data Visualization </h1>
+
+	</div>
+	<div id="main">
+	{% block body %}{% endblock %}
+	</div>
+
+	<div class='break'></div>
+	
+	<div class='footer'>
+		&#169; 2023 Hemraj Yadav, Kevin Fosnacht &amp; Poorva Poorva
+	</div>
+	
+  </body>
+</html>

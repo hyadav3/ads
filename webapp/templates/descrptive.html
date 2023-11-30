@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+
+
+{% block body %}
+<h2>Descriptive Statistics</h2>
+<h3>Bivariate Correlatons</h3>
+<img src="{{ url_for('static', filename='img/DataFrame Correlation.png') }}" alt="Bivariate Correlatons Between the Model Variables">
+
+<h3>Histograms and Boxplots</h3>
+<img src="{{ url_for('static', filename='img/age.png') }}" alt="Age">
+<img src="{{ url_for('static', filename='img/Blood_Pressure.png') }}" alt="Blood Pressure">
+<img src="{{ url_for('static', filename='img/BMI.png') }}" alt="Body Mass Index (BMI)">
+<img src="{{ url_for('static', filename='img/DPF.png') }}" alt="Diabetes pedigree function (DPF)">
+<img src="{{ url_for('static', filename='img/glucose.png') }}" alt="Glucose">
+<img src="{{ url_for('static', filename='img/Pregnancies.png') }}" alt="Pregnancies">
+<img src="{{ url_for('static', filename='img/skin_Thickness.png') }}" alt="Skin Thickness">
+
+
+
+{% endblock %}

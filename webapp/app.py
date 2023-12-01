@@ -37,7 +37,8 @@ def descrptive():
 
 def prediction():
 
-    if request.method == "POST":
+    if request.method == "POST": #if form was submitted
+        # Variables summitted (needed for form redisplay)
         Pregnancies = request.form['Pregnancies']
         Glucose = request.form['Glucose']
         BloodPressure = request.form['BloodPressure']
@@ -47,13 +48,19 @@ def prediction():
         DiabetesPedigreeFunction = request.form['DiabetesPedigreeFunction']
         Age = request.form['Age']
  
+        # creating the df for model prediction
         d = request.form.to_dict()
         df = pd.DataFrame([d.values()], columns=d.keys())
-        df=df[['Pregnancies','Glucose','BloodPressure','SkinThickness','Insulin','BMI','DiabetesPedigreeFunction','Age']]
+        #subsetting model (removes Input variables that are needed for the sliders)
+        df=df[['Pregnancies','Glucose','BloodPressure','SkinThickness','Insulin','BMI','DiabetesPedigreeFunction','Age']] 
+        
+        #load model
         loaded_model = pickle.load(open('best_svm_model.pkl', 'rb'))
         
+        # predict diabetes probability
         prob=loaded_model.predict_proba(df)
-
+        
+        #turn predicton into text statement
         pred_prob="Your probability of diabetes is "+str(round(prob[0,1]*100))+"%."
 
         
